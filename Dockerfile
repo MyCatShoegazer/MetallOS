@@ -67,7 +67,7 @@ RUN \
 
 WORKDIR /root
 
-ADD ./src /root/src
+#ADD ./src /root/src
 WORKDIR /root/src
 
 ENV PATH="/root/opt/cross/bin:$PATH"

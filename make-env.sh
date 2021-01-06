@@ -23,5 +23,5 @@ if [[ "$1" == "--no-cache" ]]; then
 else
     docker build --tag=$IMG_NAME:latest .
 fi
-#docker run --rm -it -v $(PWD):/workspace $IMG_NAME
-docker run --memory=$HEAP_SIZE --memory-swap=$SWAP_SIZE --cpus=$CORE_LOAD --rm -it $IMG_NAME
+docker run --memory=$HEAP_SIZE --memory-swap=$SWAP_SIZE --cpus=$CORE_LOAD --rm -it -v $(PWD)/src:/root/src $IMG_NAME
+#docker run --memory=$HEAP_SIZE --memory-swap=$SWAP_SIZE --cpus=$CORE_LOAD --rm -it $IMG_NAME

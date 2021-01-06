@@ -1,0 +1,17 @@
+#
+# File: .gitignore
+# Project: MetallOS
+# File Created: Wednesday, 6th January 2021 9:45:32 pm
+# Author: mycatshoegazer (mycatshoegazer@outlook.com)
+# -----
+# Last Modified: Wednesday, 6th January 2021 9:45:32 pm
+# Modified By: mycatshoegazer (mycatshoegazer@outlook.com>)
+# -----
+# Copyright 2020 - 2021 mycatshoegazer, mycatshoegazer
+#
+
+
+src/*.iso
+src/isodir
+src/sysroot
+debug_vm
