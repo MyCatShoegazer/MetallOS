@@ -23,7 +23,7 @@ VBoxManage modifyvm $VM_NAME --memory 1024 --vram 128
 VBoxManage modifyvm $VM_NAME --nic1 nat
 
 VBoxManage storagectl $VM_NAME --name "IDE Controller" --add ide --controller PIIX4
-VBoxManage storageattach $VM_NAME --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium $(PWD)/src/myos.iso
+VBoxManage storageattach $VM_NAME --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium $(PWD)/src/metallos.iso
 VBoxManage modifyvm $VM_NAME --boot1 dvd --boot2 disk --boot3 none --boot4 none
 
 VBoxManage startvm $VM_NAME
