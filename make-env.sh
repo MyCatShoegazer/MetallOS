@@ -13,9 +13,9 @@
 
 #!/bin/bash
 
-HEAP_SIZE="4096m"   # memory heap size
+HEAP_SIZE="8192m"   # memory heap size
 SWAP_SIZE="8192m"   # memory swap on host disk
-CORE_LOAD="2"       # will load two cores
+CORE_LOAD="4"       # will load two cores
 
 IMG_NAME="metallos-build-env"
 if [[ "$1" == "--no-cache" ]]; then
