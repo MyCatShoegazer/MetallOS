@@ -2,13 +2,13 @@
 #include <string.h>
 
 #include <kernel/tty.h>
+#include <kernel/acpi.h>
+#include <stdlib.h>
 
-void __attribute__ ((noinline)) smash(const char* str) {
-	char buffer[16];
-	memcpy(buffer, str, strlen(str));
-}
-
-void __attribute__ ((noinline)) kernel_main(void) {
+void __attribute__((noinline)) kernel_main(void)
+{
 	terminal_initialize();
+	unsigned char *rsdp_ptr;
+	load_rsdp(rsdp_ptr);
 	printf("Kernel loaded...\n");
 }
