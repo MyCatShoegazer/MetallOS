@@ -19,7 +19,7 @@ VBoxManage unregistervm --delete $VM_NAME
 
 VBoxManage createvm --name $VM_NAME --ostype "Linux_64" --register --basefolder $(PWD)/debug_vm
 VBoxManage modifyvm $VM_NAME --ioapic on
-VBoxManage modifyvm $VM_NAME --memory 1024 --vram 128
+VBoxManage modifyvm $VM_NAME --memory 256 --vram 128
 VBoxManage modifyvm $VM_NAME --nic1 nat
 
 VBoxManage storagectl $VM_NAME --name "IDE Controller" --add ide --controller PIIX4
