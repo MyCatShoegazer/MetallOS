@@ -8,7 +8,15 @@
 void __attribute__((noinline)) kernel_main(void)
 {
 	terminal_initialize();
-	unsigned char *rsdp_ptr;
-	load_rsdp(rsdp_ptr);
+
+	char *rsdp_addr = NULL;
+	int acpi_ver = load_rsdp(&rsdp_addr);
+	//printf(rsdp_ptr);
+	if (acpi_ver == 0)
+	{
+		struct RSDPDescriptor *rsdp_val = (struct RSDPDescriptor *)*rsdp_addr;
+		printf(rsdp_val->Signature);
+	}
+
 	printf("Kernel loaded...\n");
 }

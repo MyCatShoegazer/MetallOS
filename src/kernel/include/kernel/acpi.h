@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#define RSDP_EBDA_START 0x40E
+#define RSDP_EBDA_END 0x80E
 #define RSDP_BEGIN 0x000E0000
 #define RSDP_END 0x000FFFFF
 #define RSDP_SIGNATURE "RSD PTR "
@@ -26,6 +28,8 @@ struct RSDPDescriptor20
     uint8_t reserved[3];
 } __attribute__((packed));
 
-__attribute__((noinline)) int load_rsdp(unsigned char *rsdp_ptr);
+__attribute__((noinline)) int load_rsdp(int *rsdp_addr);
+
+__attribute__((noinline)) int check_rsdp(int rsdp_addr);
 
 #endif

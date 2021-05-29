@@ -3,14 +3,14 @@
 #include <stdio.h>
 #include <string.h>
 
-int load_rsdp(unsigned char *rsdp_ptr)
+int load_rsdp(int *rsdp_addr)
 {
-    for (int offset = RSDP_BEGIN; offset <= RSDP_END; offset <<= 1)
+    for (int offset = RSDP_BEGIN; offset <= RSDP_END; offset++)
     {
         if (memcmp((char *)offset, RSDP_SIGNATURE, strlen(RSDP_SIGNATURE)) == 0)
         {
             printf("Found ACPI RSDP...\n");
-            int rev = ((unsigned char *)offset)[15];
+            int rev = ((char *)offset)[15];
             switch (rev)
             {
             case 0:
@@ -24,10 +24,15 @@ int load_rsdp(unsigned char *rsdp_ptr)
                 break;
             }
 
-            rsdp_ptr = (unsigned char *)offset;
+            *rsdp_addr = offset;
             return rev;
         }
+        x
     }
 
     return -1;
+}
+
+int check_rsdp(int rsdp_addr)
+{
 }
